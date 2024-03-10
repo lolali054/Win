@@ -12,7 +12,7 @@
 ::   		Welcome to HashyBoo Windows Acivation tool.
 ::
 ::   Homepage: mass grave[.]dev
-::      Email: wy
+::      Email: windowsaddict@protonmail.com
 ::
 ::============================================================================
 
