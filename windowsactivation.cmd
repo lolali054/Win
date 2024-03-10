@@ -9,7 +9,7 @@
 
 ::============================================================================
 ::
-::   		Welcome to HashyBoo Windows Acivation tool.
+::   This script is a part of 'Microsoft_Activation_Scripts' (MAS) project.
 ::
 ::   Homepage: mass grave[.]dev
 ::      Email: windowsaddict@protonmail.com
