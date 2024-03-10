@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="style2.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body style="background-color: #0e112c;"> <!-- Set background color here -->
+    <div class="container">
+        <h2>Login</h2>
+        <form id="login-form" action="login.php" method="post">
+            <div class="form-group">
+                <input type="text" id="key" name="key" class="form-control" placeholder="Enter your key" required>
+            </div>
+            <button type="submit" class="btn">Login</button>
+        </form>
+        <div id="message" class="message-box"></div>
+    </div>
+</body>
+</html>
