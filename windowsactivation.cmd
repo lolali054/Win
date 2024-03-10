@@ -12,7 +12,7 @@
 ::   		Welcome to HashyBoo Windows Acivation tool.
 ::
 ::   Homepage: mass grave[.]dev
-::      Email: sbrunette53@gmail.com
+::      Email: wy
 ::
 ::============================================================================
 
@@ -68,6 +68,7 @@ echo:
 echo Null service is not running, script may crash...
 echo:
 echo:
+echo Help - %mas%troubleshoot.html
 echo:
 echo:
 ping 127.0.0.1 -n 10
@@ -280,7 +281,9 @@ echo:             [4] Online KMS  ^|  Windows / Office  ^|    180 Days
 echo:             __________________________________________________      
 echo:
 echo:             [5] Activation Status
-echo:             [6] Extras
+echo:             [6] Troubleshoot
+echo:             [7] Extras
+echo:             [8] Help
 echo:             [0] Exit
 echo:       ______________________________________________________________
 echo:
@@ -290,7 +293,8 @@ set _erl=%errorlevel%
 
 if %_erl%==9 exit /b
 if %_erl%==8 start %mas%troubleshoot.html & goto :MainMenu
-if %_erl%==6 goto:Extras
+if %_erl%==7 goto:Extras
+if %_erl%==6 setlocal & call :troubleshoot      & cls & endlocal & goto :MainMenu
 if %_erl%==5 setlocal & call :_Check_Status_wmi & cls & endlocal & goto :MainMenu
 if %_erl%==4 setlocal & call :KMSActivation     & cls & endlocal & goto :MainMenu
 if %_erl%==3 setlocal & call :KMS38Activation   & cls & endlocal & goto :MainMenu
